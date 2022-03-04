@@ -68,6 +68,8 @@ button {
   }
 }
 
+
+
 input {
   padding: 8px 20px;
   margin: 5px;
@@ -111,6 +113,9 @@ input {
       height: 100%;
       color: $primary;
     }
+    .logout {
+      margin-right: 25px;
+    }
   }
 }
 
@@ -122,6 +127,7 @@ input {
 * {
   scroll-behavior: smooth;
   scrollbar-width: none;
+  user-select: none;
 }
 
 html {

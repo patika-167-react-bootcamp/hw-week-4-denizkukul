@@ -14,8 +14,6 @@ export const CategoryLogic = ({ category, deleteCategory }: Args) => {
   // If this todos properties needs to be changed from another component while this one is visible, state needs to be moved to parent component
   const [categoryValues, setCategoryValues] = useState(category);
   const [editing, setEditing] = useState(false);
-  // const [editing, setEditing] = useState(false);
-  // TODO: Add edit function for categories using setCategoryValues //
   const handleDeleteCategory = () => {
     deleteCategory(categoryValues.id);
   }

@@ -18,12 +18,15 @@ export const AppLogic = () => {
         .then(() => { setLoading(false) })
         .then(() => { setLoggedIn(true) })
         .then(() => { setPage('todos') })
-        .catch(error => { console.log(error) })
+        .catch(error => {
+          logout();
+          console.log(error);
+        })
     }
   }, [])
 
-  const login = (username: string, password: string) => {
-    ServerCommunicator.login(username, password)
+  const login = async (username: string, password: string) => {
+    return ServerCommunicator.login(username, password)
       .then(response => {
         ServerCommunicator.token = response.data.token;
         document.cookie = `token=${response.data.token}`;
@@ -31,26 +34,15 @@ export const AppLogic = () => {
       .then(() => { setLoggedIn(true); setLoading(true) })
       .then(() => StateController.getUserData())
       .then(() => { setLoading(false) })
-      .catch((error) => {
-        if (error.response.status === 403) {
-          // TODO: Handle error if usename or password is wrong
-        }
-      })
   }
 
-  const register = (username: string, password: string, passwordConfirm: string) => {
-    setLoading(true);
-    ServerCommunicator.register(username, password, passwordConfirm)
+  const register = async (username: string, password: string, passwordConfirm: string) => {
+    return ServerCommunicator.register(username, password, passwordConfirm)
       .then(response => {
         ServerCommunicator.token = response.data.token;
         document.cookie = `token=${response.data.token}`;
       })
       .then(() => { setLoggedIn(true); setLoading(false) })
-      .catch(error => {
-        if (error.response.status === 401) {
-          // TODO: Handle error if usename is in use
-        }
-      });
   }
 
   const logout = () => {

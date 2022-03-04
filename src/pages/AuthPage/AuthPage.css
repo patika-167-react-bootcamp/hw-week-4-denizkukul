@@ -64,6 +64,7 @@
       -ms-flex-align: center;
           align-items: center;
   padding: 20px;
+  padding-bottom: 0;
 }
 
 .authpage .container .loginform form button, .authpage .container .registerform form button {
@@ -73,5 +74,16 @@
 .authpage .container input {
   width: 70%;
   margin: 8px;
+}
+
+.authpage .container input.error {
+  outline: 1px solid #e84118;
+}
+
+.authpage .container div.error {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #e84118;
 }
 /*# sourceMappingURL=AuthPage.css.map */

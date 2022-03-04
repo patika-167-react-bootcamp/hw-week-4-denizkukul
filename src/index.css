@@ -138,6 +138,10 @@ input:focus {
   color: #273c75;
 }
 
+.navbar .container .logout {
+  margin-right: 25px;
+}
+
 *::-webkit-scrollbar {
   width: 0;
   height: 0;
@@ -146,6 +150,10 @@ input:focus {
 * {
   scroll-behavior: smooth;
   scrollbar-width: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 html {

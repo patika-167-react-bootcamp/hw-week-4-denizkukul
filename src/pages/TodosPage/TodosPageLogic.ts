@@ -19,12 +19,14 @@ export const TodosPageLogic = () => {
   }
 
   const filteredTodos = () => {
-    if (Object.values(filter).every(value => value !== '' && value !== 0)) {
-      return [...StateController.todos.values()].filter(todo =>
-        todo.title.includes(filter.title) && todo.categoryId === filter.categoryId && todo.statusId === filter.statusId
-      )
+    if (Object.values(filter).every(value => value === '' || value === 0)) {
+      return [...StateController.todos.values()];
     }
-    else return [...StateController.todos.values()];
+    else return [...StateController.todos.values()].filter(todo => {
+      return todo.title.includes(filter.title) &&
+        (filter.categoryId === 0 || todo.categoryId === filter.categoryId) &&
+        (filter.statusId === 0 || todo.statusId === filter.statusId)
+    })
   }
 
   return { addTodo, deleteTodo, filteredTodos, filter, setFilter }
