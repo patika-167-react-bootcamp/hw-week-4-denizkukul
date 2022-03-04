@@ -11,5 +11,6 @@ import { EditTodo } from "./EditTodo/EditTodo";
 import { Select } from "./Select/Select";
 import { ColorSelect } from "./ColorSelect/ColorSelect";
 import { ExpandIcon } from "./ExpandIcon/ExpandIcon";
+import { EditCategory } from "./EditCatagory/EditCategory";
 export { Select, ColorSelect, ExpandIcon };
-export { NavBar, LoginForm, RegisterForm, Todo, AddTodo, FilterTodos, Category, AddCategory, FilterCategories, EditTodo };
+export { NavBar, LoginForm, RegisterForm, Todo, AddTodo, FilterTodos, Category, AddCategory, FilterCategories, EditTodo, EditCategory };

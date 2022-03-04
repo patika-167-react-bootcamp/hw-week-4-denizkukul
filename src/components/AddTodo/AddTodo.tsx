@@ -9,6 +9,7 @@ interface Props {
 
 export const AddTodo = ({ addTodo }: Props) => {
   const { formData, setTodoTitle, setCategory, setStatus, handleAddTodo, expanded, toggleExpand } = AddTodoLogic({ addTodo });
+  //TODO: Remove filter for status select, map parent category instead
   return (
     <div className='addtodo'>
       <div className={`head ${expanded && 'expanded'}`} onClick={toggleExpand}><p>Add Todo</p><ExpandIcon expanded={expanded} /></div>

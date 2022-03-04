@@ -1,7 +1,8 @@
-import { AppConfig } from '../interfaces';
 import axios from 'axios';
+import { AppConfig } from '../interfaces';
 import { getCookieValue } from '../helpers/getCookie';
 
+// This class will handle requests to server
 export class ServerCommunicatorClass {
   appConfig: AppConfig;
   token: string | null;

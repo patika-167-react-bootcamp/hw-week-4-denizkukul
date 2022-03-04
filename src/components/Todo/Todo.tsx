@@ -1,8 +1,8 @@
 import './Todo.css';
-import { useEffect, useState } from 'react';
-import { todo, todoInput } from '../../interfaces';
+import { todo } from '../../interfaces';
 import { StateController } from '../../app/AppLogic';
 import { EditTodo } from '..';
+import { TodoLogic } from './TodoLogic';
 
 interface Props {
   todo: todo;
@@ -10,24 +10,8 @@ interface Props {
 }
 
 export const Todo = ({ todo, deleteTodo }: Props) => {
-  // Initiates this component with passed values
-  // Changes to this todo will trigger render only for this component
-  // If this todos properties needs to be changed from another component while this one is visible, state needs to be moved to parent component
-  const [todoValues, setTodoValues] = useState(todo)
-  const [editing, setEditing] = useState(false);
-  // TODO: Add edit function for todos using setTodoValues //
-  const handleDeleteTodo = () => {
-    deleteTodo(todoValues.id);
-  }
-  const saveEdit = (newTodo: todoInput) => {
-    StateController.editTodo(newTodo, todoValues.id);
-    const newState = StateController.todos.get(todoValues.id);
-    newState && setTodoValues(newState);
-    setEditing(false);
-  }
-  const cancelEdit = () => {
-    setEditing(false);
-  }
+  const { todoValues, handleDeleteTodo, editing, startEdit, saveEdit, cancelEdit } = TodoLogic({ todo, deleteTodo });
+
   return (
     <>
       {
@@ -37,7 +21,7 @@ export const Todo = ({ todo, deleteTodo }: Props) => {
             <div className='todo-title'>{todoValues?.title}</div>
             <div className='todo-category'>{StateController.categories.get(todoValues.categoryId)?.title}</div>
             <div className='todo-status'>{StateController.statuses.get(todoValues?.statusId)?.title}</div>
-            <button onClick={() => { setEditing(true) }} className='edit confirm'>Edit</button>
+            <button onClick={startEdit} className='edit confirm'>Edit</button>
             <button onClick={handleDeleteTodo} className='delete danger'>Delete</button>
           </div>
       }

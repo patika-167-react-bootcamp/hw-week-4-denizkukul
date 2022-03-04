@@ -9,6 +9,8 @@ interface Props {
 
 export const AddCategory = ({ addCategory }: Props) => {
   const { formData, setCategoryTitle, setStatusTitle, setStatusColor, addStatusInput, removeStatusInput, handleAddCategory, expanded, toggleExpand } = AddCategoryLogic(addCategory);
+
+  // TODO: this component render function can be split into multiple components
   return (
     <div className='addcategory'>
       <div className={`head ${expanded && 'expanded'}`} onClick={toggleExpand}><p>Add Category</p><ExpandIcon expanded={expanded} /></div>
@@ -22,7 +24,10 @@ export const AddCategory = ({ addCategory }: Props) => {
                 <div className='status' key={i}>
                   <input placeholder={`Status ${i + 1}`} name={"" + i} value={status.title} onChange={(e) => { setStatusTitle(e, i) }} required />
                   <ColorSelect value={formData.statuses[i].color} options={["blue", "red", "green", "orange", "purple"]} index={i} label='Status Color' onChange={setStatusColor} />
-                  <button className='danger' onClick={() => { removeStatusInput(i) }}>Remove</button>
+                  {
+                    i !== 0 && // Category must have at least 1 status
+                    <button className='danger' onClick={() => { removeStatusInput(i) }}>Remove</button>
+                  }
                 </div>
               )
             })

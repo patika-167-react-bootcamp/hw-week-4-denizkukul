@@ -9,6 +9,7 @@ interface Args {
 export const EditTodoLogic = ({ saveEdit, todoValues }: Args) => {
   const [formData, setFormData] = useState({ title: todoValues.title, categoryId: todoValues.categoryId, statusId: todoValues.statusId });
 
+  // TODO: Fix Typescript error when merging these into a single formupdate function
   const setTodoTitle = (newValue: string) => {
     setFormData((current) => { return { ...current, title: newValue } })
   }

@@ -23,6 +23,7 @@ export const AppLogic = () => {
     }
   }, [])
 
+  // TODO: Handle error if usename or password is wrong
   const login = (username: string, password: string) => {
     ServerCommunicator.login(username, password)
       .then(response => {
@@ -35,6 +36,7 @@ export const AppLogic = () => {
       .catch((error) => { console.log(error) })
   }
 
+  // TODO: Handle error if usename is in use
   const register = (username: string, password: string, passwordConfirm: string) => {
     setLoading(true);
     ServerCommunicator.register(username, password, passwordConfirm)

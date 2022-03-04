@@ -1,4 +1,4 @@
-.category {
+.category, .editcategory {
   margin: 5px auto;
   border: 1px solid #273c75;
   border-radius: 5px;
@@ -25,23 +25,23 @@
           flex: 1;
 }
 
-.category .title {
+.category .title, .editcategory .title {
   padding-left: 10px;
 }
 
-.category button {
+.category button, .editcategory button {
   margin: 0;
   width: 120px;
   border-radius: 5px;
 }
 
-.category .body {
+.category .body, .editcategory .body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.category .edit {
+.category .edit, .editcategory .edit {
   margin-left: auto;
   margin-right: 15px;
 }

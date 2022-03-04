@@ -1,7 +1,7 @@
 import './Category.css';
-import { useState } from 'react';
 import { category } from '../../interfaces';
-import { StateController } from '../../app/AppLogic';
+import { CategoryLogic } from './CategoryLogic';
+import { EditCategory } from '..';
 
 interface Props {
   category: category;
@@ -9,23 +9,17 @@ interface Props {
 }
 
 export const Category = ({ category, deleteCategory }: Props) => {
-  // Initiates this component with passed values
-  // Changes to this category will trigger render only for this component (todos are not visible on this page)
-  // If this todos properties needs to be changed from another component while this one is visible, state needs to be moved to parent component
-  const [categoryValues, setCategoryValues] = useState(category);
-  // const [editing, setEditing] = useState(false);
-  // TODO: Add edit function for categories using setCategoryValues //
-  const handleDeleteCategory = () => {
-    deleteCategory(categoryValues.id);
-  }
+  const { categoryValues, handleDeleteCategory, editing, startEdit, saveEdit, cancelEdit } = CategoryLogic({ category, deleteCategory });
   return (
     <>
       {
-        <div className='category'>
-          <div className='title'>{categoryValues?.title}</div>
-          <button className='edit confirm'>Edit</button>
-          <button onClick={handleDeleteCategory} className='delete danger'>Delete</button>
-        </div>
+        editing ?
+          <EditCategory categoryValues={categoryValues} saveEdit={saveEdit} cancelEdit={cancelEdit} /> :
+          <div className='category'>
+            <div className='title'>{categoryValues?.title}</div>
+            <button onClick={startEdit} className='edit confirm'>Edit</button>
+            <button onClick={handleDeleteCategory} className='delete danger'>Delete</button>
+          </div>
       }
     </>
   )

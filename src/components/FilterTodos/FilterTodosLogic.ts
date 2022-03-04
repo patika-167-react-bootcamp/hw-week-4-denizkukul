@@ -16,6 +16,7 @@ interface Args {
 export const FilterTodosLogic = ({ filter, setFilter }: Args) => {
   const [expanded, setExpanded] = useState(false);
 
+  // TODO: Fix Typescript error when merging these into a single formupdate function
   const setTitle = (newValue: string) => {
     setFilter((current) => { return { ...current, title: newValue } })
   }
