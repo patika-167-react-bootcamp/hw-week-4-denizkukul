@@ -1,0 +1,91 @@
+@import '../../variables.scss';
+
+  .todo {
+    margin: 5px auto;
+    border: 1px solid $primary;
+    border-radius: 5px;
+    padding: 10px 15px;
+    display: flex;
+    min-width: 100%;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    background-color: darken($secondary, 5);
+    color: $primary;
+    font-size: 15px;
+    font-family: 'Poppins';
+    font-weight: 600;
+    flex: 1;
+    &.edit {
+      input, .select-container {
+        flex:0px 1 1;
+        height: 40px;
+        margin: 0px 5px;
+        letter-spacing: normal;
+        padding-left: 9px;
+        font-size: 15px;
+      }
+      input {
+        flex: 280px 0 0;
+        margin-left: 0;
+        padding-left: 10px;
+      }
+      .select-container {
+        width: 300px;
+        font-weight: 600;
+        letter-spacing: normal;
+        .option {
+          padding-left: 9px;
+        }
+      }
+      .save {
+        margin-right: 15px;
+      }
+    }
+    .todo-title, .todo-category, .todo-status {
+      flex: 280px 0 0;
+      border: none;
+      padding-left: 10px;
+      margin: 0px 5px;
+      text-transform: capitalize;
+    }
+    .todo-title {
+      padding-left: 10px;
+      margin-left: 0;
+    }
+    button {
+      margin: 0;
+      width: 120px;
+      border-radius: 5px;
+    }
+    .edit {
+      margin-left: auto;
+      margin-right: 15px;
+    }
+    &.red {
+      color: darken(red, 10);
+      background-color: lighten(red, 45);
+      border: 1px solid red;
+    }
+    &.blue {
+      color: darken(blue, 10);
+      background-color: lighten(blue, 45);
+      border: 1px solid blue;
+    }
+    &.orange {
+      color: darken(orange, 25);
+      background-color: lighten(orange, 46);
+      border: 1px solid orange;
+    }
+    &.purple {
+      color: darken(purple, 10);
+      background-color: lighten(purple, 68);
+      border: 1px solid purple;
+    }
+    &.green {
+      color: darken(green, 10);
+      background-color: lighten(green, 70);
+      border: 1px solid green;
+    }
+  }

@@ -1,0 +1,35 @@
+@import '../../variables.scss';
+
+.category {
+  margin: 5px auto;
+  border: 1px solid $primary;
+  border-radius: 5px;
+  padding: 10px 15px;
+  display: flex;
+  min-width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 800px;
+  background-color: darken($secondary, 5);
+  color: $primary;
+  font-size: 15px;
+  text-transform: capitalize;
+  font-family: 'Poppins';
+  font-weight: 600;
+  flex: 1;
+  .title {
+    padding-left: 10px;
+  }
+  button {
+    margin: 0;
+    width: 120px;
+    border-radius: 5px;
+  }
+  .body {
+    display: flex;
+  }
+  .edit {
+    margin-left: auto;
+    margin-right: 15px;
+  }
+}

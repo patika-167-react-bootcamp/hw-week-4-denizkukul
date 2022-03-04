@@ -1,0 +1,9 @@
+svg {
+  fill: #273c75;
+}
+
+svg.expanded {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+/*# sourceMappingURL=ExpandIcon.css.map */

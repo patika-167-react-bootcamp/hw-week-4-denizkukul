@@ -1,0 +1,48 @@
+.category {
+  margin: 5px auto;
+  border: 1px solid #273c75;
+  border-radius: 5px;
+  padding: 10px 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 800px;
+  background-color: #e4e7f2;
+  color: #273c75;
+  font-size: 15px;
+  text-transform: capitalize;
+  font-family: 'Poppins';
+  font-weight: 600;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.category .title {
+  padding-left: 10px;
+}
+
+.category button {
+  margin: 0;
+  width: 120px;
+  border-radius: 5px;
+}
+
+.category .body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.category .edit {
+  margin-left: auto;
+  margin-right: 15px;
+}
+/*# sourceMappingURL=Category.css.map */

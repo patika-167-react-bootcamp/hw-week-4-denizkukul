@@ -1,0 +1,65 @@
+.filtertodos {
+  margin: 5px;
+  border: 1px solid #273c75;
+  border-radius: 5px;
+  background-color: #d3d7e9;
+}
+
+.filtertodos button {
+  width: 370px;
+  border-radius: 5px;
+}
+
+.filtertodos .select-container {
+  width: 300px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.filtertodos .head {
+  padding: 10px 15px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #273c75;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.filtertodos .head p {
+  margin: 0;
+}
+
+.filtertodos .head:not(.expanded) {
+  padding: 10px 15px;
+}
+
+.filtertodos .body {
+  padding: 10px;
+  padding-top: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.filtertodos .body input, .filtertodos .body .select, .filtertodos .body .button {
+  -webkit-box-flex: 0px;
+      -ms-flex: 0px 1 1;
+          flex: 0px 1 1;
+  height: 40px;
+}
+/*# sourceMappingURL=FilterTodos.css.map */

@@ -1,0 +1,40 @@
+@import '../../variables.scss';
+
+.select-container {
+  width: 200px;
+  height: 40px;
+  padding: 0 10px 0 20px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid $primary;
+  color: $primary;
+  background-color: white;
+  letter-spacing: 1px;
+  font-family: 'Poppins', sans-serif;
+  text-transform: capitalize;
+  line-height: 40px;
+  position: relative;
+  cursor: pointer;
+}
+.select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.options {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  border-right: 1px solid $primary;
+  border-left: 1px solid $primary;
+  z-index: 50;
+}
+.option {
+  height: 38px;
+  border-bottom: 1px solid $primary;
+  background-color: white;
+  padding: 0 20px;
+  &:hover {
+    background-color: darken($secondary, 20);
+  }
+}

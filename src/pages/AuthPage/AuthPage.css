@@ -1,0 +1,73 @@
+.authpage {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  min-height: 100%;
+}
+
+.authpage .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 80%;
+}
+
+.authpage .container .tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-width: 400px;
+  border: 1px solid #273c75;
+  border-radius: 5px 5px 0 0;
+  border-bottom: none;
+  overflow: hidden;
+}
+
+.authpage .container .tabs button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 40px;
+  width: 100%;
+}
+
+.authpage .container .loginform, .authpage .container .registerform {
+  width: 400px;
+  height: 280px;
+  background-color: #d3d7e9;
+  border: 1px solid #273c75;
+  border-radius: 0 0 5px 5px;
+}
+
+.authpage .container .loginform form, .authpage .container .registerform form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+}
+
+.authpage .container input {
+  width: 70%;
+  margin: 8px;
+}
+/*# sourceMappingURL=AuthPage.css.map */

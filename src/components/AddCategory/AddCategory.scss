@@ -1,0 +1,142 @@
+@import '../../variables.scss';
+
+.addcategory {
+  margin: 5px;
+  border: 1px solid $primary;
+  border-radius: 5px;
+  background-color: darken($secondary, 10);
+  button {
+    border-radius: 5px;
+  }
+  .head {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-family: 'Poppins', 'sans-serif';
+    font-weight: 600;
+    color: $primary;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    p {
+      margin: 0;
+    }
+  }
+  .options {
+    z-index: 50;
+  }
+  form {
+    padding: 10px;
+    padding-top: 0px;
+    display: flex;
+    flex-direction: column;
+    input.title {
+      max-width: 300px;
+    }
+    .status {
+      display: flex;
+      align-items: center;
+      input {
+        max-width: 300px;
+        height: 40px;
+      }
+      .select {
+        font-size: 14px;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;      
+      }
+    }
+    input, .select, .button {
+      max-width: 350px;
+      flex:0px 1 1;
+    }
+    .newstatus {
+      width: 300px;
+      margin-right: 0;
+    }
+    .add {
+      width: 373px;
+    }
+  }
+}
+
+.option {
+  font-size: 14px;
+  font-weight: 600;
+  height: 38px;
+  border-bottom: 1px solid $primary;
+  background-color: white;
+  padding: 0 20px;
+  &:hover {
+    background-color: darken($secondary, 20);
+  }
+  &.red {
+    color: lighten(red, 20);
+    &:hover {
+      background-color: lighten(red, 40);
+    }
+  }
+  &.blue {
+    color: lighten(blue, 20);
+    &:hover {
+      background-color: lighten(blue, 40);
+    }
+  }
+  &.orange {
+    color: lighten(orange, 20);
+    &:hover {
+      background-color: lighten(orange, 40);
+    }
+  }
+  &.purple {
+    color: lighten(purple, 20);
+    &:hover {
+      background-color: lighten(purple, 70);
+    }
+  }
+  &.green {
+    color: lighten(green, 20);
+    &:hover {
+      background-color: lighten(green, 60);
+    }
+  }
+}
+
+.select-container {
+  &.red {
+    color: lighten(red, 20);
+    border: 1px solid lighten(red, 20);
+    svg {
+      fill: lighten(red, 20);
+    }
+  }
+  &.blue {
+    color: lighten(blue, 20);
+    border: 1px solid lighten(blue, 20);
+    svg {
+      fill: lighten(blue, 20);
+    }
+  }
+  &.orange {
+    color: lighten(orange, 20);
+    border: 1px solid lighten(orange, 20);
+    svg {
+      fill: lighten(orange, 20);
+    }
+  }
+  &.purple {
+    color: lighten(purple, 20);
+    border: 1px solid lighten(purple, 20);
+    svg {
+      fill: lighten(purple, 20);
+    }
+  }
+  &.green {
+    color: lighten(green, 20);
+    border: 1px solid lighten(green, 20);
+    svg {
+      fill: lighten(green, 20);
+    }
+  }
+}

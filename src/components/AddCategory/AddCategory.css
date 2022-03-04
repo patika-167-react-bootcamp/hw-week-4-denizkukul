@@ -1,0 +1,192 @@
+.addcategory {
+  margin: 5px;
+  border: 1px solid #273c75;
+  border-radius: 5px;
+  background-color: #d3d7e9;
+}
+
+.addcategory button {
+  border-radius: 5px;
+}
+
+.addcategory .head {
+  padding: 10px 15px;
+  font-size: 16px;
+  font-family: 'Poppins', 'sans-serif';
+  font-weight: 600;
+  color: #273c75;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  cursor: pointer;
+}
+
+.addcategory .head p {
+  margin: 0;
+}
+
+.addcategory .options {
+  z-index: 50;
+}
+
+.addcategory form {
+  padding: 10px;
+  padding-top: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.addcategory form input.title {
+  max-width: 300px;
+}
+
+.addcategory form .status {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.addcategory form .status input {
+  max-width: 300px;
+  height: 40px;
+}
+
+.addcategory form .status .select {
+  font-size: 14px;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.addcategory form input, .addcategory form .select, .addcategory form .button {
+  max-width: 350px;
+  -webkit-box-flex: 0px;
+      -ms-flex: 0px 1 1;
+          flex: 0px 1 1;
+}
+
+.addcategory form .newstatus {
+  width: 300px;
+  margin-right: 0;
+}
+
+.addcategory form .add {
+  width: 373px;
+}
+
+.option {
+  font-size: 14px;
+  font-weight: 600;
+  height: 38px;
+  border-bottom: 1px solid #273c75;
+  background-color: white;
+  padding: 0 20px;
+}
+
+.option:hover {
+  background-color: #b1b9d8;
+}
+
+.option.red {
+  color: #ff6666;
+}
+
+.option.red:hover {
+  background-color: #ffcccc;
+}
+
+.option.blue {
+  color: #6666ff;
+}
+
+.option.blue:hover {
+  background-color: #ccccff;
+}
+
+.option.orange {
+  color: #ffc966;
+}
+
+.option.orange:hover {
+  background-color: #ffedcc;
+}
+
+.option.purple {
+  color: #e600e6;
+}
+
+.option.purple:hover {
+  background-color: #ffe6ff;
+}
+
+.option.green {
+  color: #00e600;
+}
+
+.option.green:hover {
+  background-color: #b3ffb3;
+}
+
+.select-container.red {
+  color: #ff6666;
+  border: 1px solid #ff6666;
+}
+
+.select-container.red svg {
+  fill: #ff6666;
+}
+
+.select-container.blue {
+  color: #6666ff;
+  border: 1px solid #6666ff;
+}
+
+.select-container.blue svg {
+  fill: #6666ff;
+}
+
+.select-container.orange {
+  color: #ffc966;
+  border: 1px solid #ffc966;
+}
+
+.select-container.orange svg {
+  fill: #ffc966;
+}
+
+.select-container.purple {
+  color: #e600e6;
+  border: 1px solid #e600e6;
+}
+
+.select-container.purple svg {
+  fill: #e600e6;
+}
+
+.select-container.green {
+  color: #00e600;
+  border: 1px solid #00e600;
+}
+
+.select-container.green svg {
+  fill: #00e600;
+}
+/*# sourceMappingURL=AddCategory.css.map */
