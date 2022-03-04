@@ -10,10 +10,10 @@ interface Props {
 }
 
 export const ColorSelect = ({ options, value, label, onChange, index }: Props) => {
-  const { color, handleSelect, optionsRef, expanded, toggleExpand } = ColorSelectLogic({ onChange, index });
+  const { handleSelect, optionsRef, expanded, toggleExpand } = ColorSelectLogic({ onChange, index });
 
   return (
-    <div className={`select-container ${color} `} onClick={toggleExpand}>
+    <div className={`select-container ${value} `} onClick={toggleExpand}>
       <div className='select'>
         <div>{value === '' ? label : value}</div>
         <ExpandIcon expanded={expanded} />

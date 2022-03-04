@@ -7,13 +7,11 @@ interface Props {
 
 export const ColorSelectLogic = ({ onChange, index }: Props) => {
   const [expanded, setExpanded] = useState(false);
-  const [color, setColor] = useState<string | null>(null);
   const optionsRef = useRef<HTMLDivElement | null>(null);
 
   const handleSelect = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     let newValue = e.currentTarget.dataset.value;
     newValue && onChange(newValue, index);
-    newValue && setColor(newValue);
   }
 
   const close = (e: MouseEvent) => {
@@ -37,5 +35,5 @@ export const ColorSelectLogic = ({ onChange, index }: Props) => {
     setExpanded(current => !current);
   }
 
-  return { expanded, toggleExpand, optionsRef, color, handleSelect }
+  return { expanded, toggleExpand, optionsRef, handleSelect }
 }

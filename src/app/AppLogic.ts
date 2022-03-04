@@ -15,7 +15,6 @@ export const AppLogic = () => {
   useEffect(() => {
     if (Boolean(ServerCommunicator.token)) {
       StateController.getUserData()
-        .then(() => ('userdata ready'))
         .then(() => { setLoading(false) })
         .then(() => { setLoggedIn(true) })
         .then(() => { setPage('todos') })
@@ -23,7 +22,6 @@ export const AppLogic = () => {
     }
   }, [])
 
-  // TODO: Handle error if usename or password is wrong
   const login = (username: string, password: string) => {
     ServerCommunicator.login(username, password)
       .then(response => {
@@ -33,10 +31,13 @@ export const AppLogic = () => {
       .then(() => { setLoggedIn(true); setLoading(true) })
       .then(() => StateController.getUserData())
       .then(() => { setLoading(false) })
-      .catch((error) => { console.log(error) })
+      .catch((error) => {
+        if (error.response.status === 403) {
+          // TODO: Handle error if usename or password is wrong
+        }
+      })
   }
 
-  // TODO: Handle error if usename is in use
   const register = (username: string, password: string, passwordConfirm: string) => {
     setLoading(true);
     ServerCommunicator.register(username, password, passwordConfirm)
@@ -45,7 +46,11 @@ export const AppLogic = () => {
         document.cookie = `token=${response.data.token}`;
       })
       .then(() => { setLoggedIn(true); setLoading(false) })
-      .catch(error => console.log(error));
+      .catch(error => {
+        if (error.response.status === 401) {
+          // TODO: Handle error if usename is in use
+        }
+      });
   }
 
   const logout = () => {

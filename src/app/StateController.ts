@@ -101,22 +101,49 @@ export class StateControllerClass {
       })
   }
 
-  // TODO: THIS IS NOT WORKING!!! DEBUG
-  async editCategory(updatedCategory: categoryInput, id: number, todoUpdate: boolean) {
+  // Editing category title and statuses
+  async editCategory(updatedCategory: categoryInput, id: number) {
     const currentCategory = this.categories.get(id);
     if (!currentCategory) return;
-    const currentStatuses = currentCategory?.statuses.map(statusID => this.statuses.get(statusID));
+    const currentStatuses: status[] = [];
+    currentCategory.statuses.forEach(statusID => {
+      let status = this.statuses.get(statusID);
+      status && currentStatuses.push(status);
+    });
+    const updatedStatuses = updatedCategory.statuses;
+
     const promises = [];
-    currentCategory?.title !== updatedCategory.title && promises.push(this.ServerCommunicator.update('category', id, updatedCategory));
-    currentStatuses?.forEach((status, index) => {
-      // Check if status titles or colors are changed ??
-      if (status?.title !== updatedCategory.statuses[index].title || status?.color !== updatedCategory.statuses[index].color) {
-        status && promises.push(this.ServerCommunicator.update('status', status.id, updatedCategory.statuses[index]));
+    const statusRemoved = currentStatuses.length - updatedStatuses.length > 0;
+
+    // If updated statuses length < current statueses length delete unused statuses
+    currentStatuses.slice(updatedStatuses.length).forEach((status) => {
+      promises.push(this.ServerCommunicator.delete('status', status.id))
+      this.statuses.delete(status.id);
+      currentCategory.statuses.splice(updatedStatuses.length);
+    })
+
+    // Check if category titles is changed
+    currentCategory.title !== updatedCategory.title && promises.push(this.ServerCommunicator.update('category', id, updatedCategory)
+      .then(() => { currentCategory.title = updatedCategory.title }))
+    updatedStatuses.forEach((status, index) => {
+      // Current statuses length is reached, create new statuses
+      if (!currentStatuses[index]) {
+        promises.push(this.ServerCommunicator.create('status', { ...status, categoryId: currentCategory.id }).then(response => {
+          this.statuses.set(response.data.id, response.data);
+          currentCategory.statuses.push(response.data.id);
+        }));
+      }
+      // If existing status titles or colors are changed update them
+      else if (status.title !== currentStatuses[index].title || status.color !== currentStatuses[index].color) {
+        promises.push(this.ServerCommunicator.update('status', currentStatuses[index].id, status).then((response) => {
+          this.statuses.set(currentStatuses[index].id, response.data);
+        }));
       }
     });
-    if (todoUpdate) {
+    // Reset todo progress (If todos current status is deleted)
+    if (statusRemoved) {
       this.todos.forEach(todo => {
-        if (todo.categoryId === id) {
+        if (todo.categoryId === id && !this.statuses.get(todo.statusId)) {
           todo.statusId = currentCategory.statuses[0];
           const updatedTodo: todoInput = { title: todo.title, categoryId: todo.categoryId, statusId: todo.statusId }
           this.ServerCommunicator.update('todo', todo.id, updatedTodo);
@@ -130,19 +157,20 @@ export class StateControllerClass {
   deleteCategory(id: number) {
     const currentCategory = this.categories.get(id);
     if (!currentCategory) return;
-    this.categories.delete(id);
-    // Delete category
-    this.ServerCommunicator.delete('category', id);
     // Delete related statuses
     currentCategory.statuses.forEach(status => {
-      this.ServerCommunicator.delete('status', status);
       this.statuses.delete(status);
     });
     // Delte related todos
     this.todos.forEach(todo => {
-      this.ServerCommunicator.delete('todo', todo.id);
-      todo.categoryId === id && this.todos.delete(todo.id)
+      if (todo.categoryId === id) {
+        this.ServerCommunicator.delete('todo', todo.id);
+        this.todos.delete(todo.id);
+      }
     });
+    // Delete category
+    this.ServerCommunicator.delete('category', id);
+    this.categories.delete(id);
   }
 }
 

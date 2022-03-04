@@ -9,9 +9,9 @@ export const NavBar = ({ page, setPage, logout }: Props) => {
     <div className='navbar'>
       <div className='container'>
         <div className='title'>TodoApp</div>
-        <button className={`navbutton ${page === 'login' ? 'current' : ''}`} onClick={() => { setPage('todos') }}>Todolist</button>
-        <button className={`navbutton ${page === 'login' ? 'current' : ''}`} onClick={() => { setPage('categories') }}>Categories</button>
-        <button className={`navbutton ${page === 'login' ? 'current' : ''}`} onClick={logout}>Log Out</button>
+        <button className={`navbutton ${page === 'todos' ? 'current' : ''}`} onClick={() => { setPage('todos') }}>Todolist</button>
+        <button className={`navbutton ${page === 'categories' ? 'current' : ''}`} onClick={() => { setPage('categories') }}>Categories</button>
+        <button className='navbutton' onClick={logout}>Log Out</button>
       </div>
     </div>
   )

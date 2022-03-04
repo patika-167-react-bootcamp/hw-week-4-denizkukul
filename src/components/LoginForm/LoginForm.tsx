@@ -10,8 +10,8 @@ export const LoginForm = ({ login }: Props) => {
   return (
     <div className='loginform'>
       <form onSubmit={handleLogin}>
-        <input placeholder='Username' name='username' value={formData.username} onChange={updateFormData} />
-        <input type='password' placeholder='Password' name='password' value={formData.password} onChange={updateFormData} />
+        <input placeholder='Username' name='username' value={formData.username} onChange={updateFormData} required />
+        <input type='password' placeholder='Password' name='password' value={formData.password} onChange={updateFormData} required />
         <button className='confirm'>Login</button>
       </form>
     </div>

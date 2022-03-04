@@ -23,10 +23,11 @@ export const CategoryLogic = ({ category, deleteCategory }: Args) => {
     setEditing(true);
   }
   const saveEdit = (newCategory: categoryInput) => {
-    StateController.editCategory(newCategory, categoryValues.id, false);
-    const newState = StateController.categories.get(categoryValues.id);
-    newState && setCategoryValues(newState);
-    setEditing(false);
+    StateController.editCategory(newCategory, categoryValues.id).then(() => {
+      const newState = StateController.categories.get(categoryValues.id);
+      newState && setCategoryValues(newState);
+      setEditing(false);
+    })
   }
   const cancelEdit = () => {
     setEditing(false);

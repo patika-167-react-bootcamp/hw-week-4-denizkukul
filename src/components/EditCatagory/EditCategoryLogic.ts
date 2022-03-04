@@ -48,5 +48,6 @@ export const EditCategoryLogic = ({ saveEdit, categoryValues }: Args) => {
     e.preventDefault();
     saveEdit(formData);
   }
+
   return { formData, setCategoryTitle, setStatusTitle, setStatusColor, addStatusInput, removeStatusInput, handleSaveEdit }
 }

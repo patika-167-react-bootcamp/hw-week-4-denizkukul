@@ -7,6 +7,7 @@
 
 .addcategory button {
   border-radius: 5px;
+  margin: 5px;
 }
 
 .addcategory .head {
@@ -81,15 +82,99 @@
   -webkit-box-flex: 0px;
       -ms-flex: 0px 1 1;
           flex: 0px 1 1;
+  min-height: 40px;
 }
 
 .addcategory form .newstatus {
   width: 300px;
-  margin-right: 0;
+  margin: 5px;
 }
 
 .addcategory form .add {
-  width: 373px;
+  width: 370px;
+  margin: 5px;
+}
+
+.editcategory form {
+  padding: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.editcategory form input.title {
+  max-width: 300px;
+  padding-left: 20px;
+}
+
+.editcategory form .status {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.editcategory form .status input {
+  max-width: 300px;
+  height: 40px;
+}
+
+.editcategory form .status .select {
+  font-size: 14px;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.editcategory form input, .editcategory form .select, .editcategory form .button {
+  max-width: 350px;
+  -webkit-box-flex: 0px;
+      -ms-flex: 0px 1 1;
+          flex: 0px 1 1;
+  min-height: 40px;
+}
+
+.editcategory form .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.editcategory form .newstatus {
+  width: 300px;
+  margin: 5px;
+}
+
+.editcategory form .save {
+  width: 370px;
+  margin: 5px;
+}
+
+.editcategory form .remove {
+  width: 160px;
+}
+
+.editcategory form .cancel {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .option {

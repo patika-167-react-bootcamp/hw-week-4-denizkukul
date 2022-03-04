@@ -26,7 +26,7 @@ export const AddCategory = ({ addCategory }: Props) => {
                   <ColorSelect value={formData.statuses[i].color} options={["blue", "red", "green", "orange", "purple"]} index={i} label='Status Color' onChange={setStatusColor} />
                   {
                     i !== 0 && // Category must have at least 1 status
-                    <button className='danger' onClick={() => { removeStatusInput(i) }}>Remove</button>
+                    <button type='button' className='danger' onClick={() => { removeStatusInput(i) }}>Remove</button>
                   }
                 </div>
               )

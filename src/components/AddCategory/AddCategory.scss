@@ -7,6 +7,7 @@
   background-color: darken($secondary, 10);
   button {
     border-radius: 5px;
+    margin: 5px;
   }
   .head {
     padding: 10px 15px;
@@ -50,17 +51,67 @@
     input, .select, .button {
       max-width: 350px;
       flex:0px 1 1;
+      min-height: 40px;
     }
     .newstatus {
       width: 300px;
-      margin-right: 0;
+      margin:5px;
     }
     .add {
-      width: 373px;
+      width: 370px;
+      margin:5px;
     }
   }
 }
 
+.editcategory form {
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  input.title {
+    max-width: 300px;
+    padding-left: 20px;
+  }
+  .status {
+    display: flex;
+    align-items: center;
+    input {
+      max-width: 300px;
+      height: 40px;
+    }
+    .select {
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;      
+    }
+  }
+  input, .select, .button {
+    max-width: 350px;
+    flex:0px 1 1;
+    min-height: 40px;
+  }
+  .buttons {
+    display: flex;
+    align-items: center;
+  }
+  .newstatus {
+    width: 300px;
+    margin:5px;
+  }
+  .save {
+    width: 370px;
+    margin:5px;
+  }
+  .remove {
+    width: 160px;
+  }
+  .cancel {
+    flex: 1;
+  }
+}
 
 // TODO: Use variables for colors instead of classnames.
 .option {
