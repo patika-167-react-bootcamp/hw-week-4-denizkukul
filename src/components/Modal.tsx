@@ -1,4 +1,4 @@
-import { Box } from "@mui/material"
+import { Box } from '@mui/material'
 const style = {
   position: 'absolute',
   top: '50px',

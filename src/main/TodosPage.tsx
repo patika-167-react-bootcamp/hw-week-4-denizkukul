@@ -1,8 +1,7 @@
-import { Box, Typography } from "@mui/material"
-import { useState } from "react";
-import { Todo, TodoForm } from "../components"
-import { todoInput } from "../interfaces";
-import { useStateContext } from "../state-manager/stateProvider"
+import { Box, Typography } from '@mui/material'
+import { useState } from 'react';
+import { Todo, TodoForm } from '../components'
+import { useStateContext } from '../state-manager/stateProvider'
 
 export const TodosPage: React.FC = () => {
   const [filter, setFilter] = useState({ title: '', categoryId: 0, statusId: 0 });

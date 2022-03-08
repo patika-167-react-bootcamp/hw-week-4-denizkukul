@@ -1,7 +1,7 @@
-import { createContext, useState, useContext, useMemo, useEffect, useRef } from "react";
-import { useAuthContext } from "../auth/AuthContextProvider";
-import { category, categoryInput, status, todo, todoInput } from "../interfaces";
-import { server } from "../services/server";
+import { createContext, useState, useContext, useMemo, useEffect, useRef } from 'react';
+import { useAuthContext } from '../auth/AuthContextProvider';
+import { category, categoryInput, status, todo, todoInput } from '../interfaces';
+import { server } from '../services/server';
 
 interface States {
   todos: Map<number, todo>;
@@ -105,7 +105,7 @@ export const StateProvider: React.FC = ({ children }) => {
       },
       updateCategory: async (updatedCategory: categoryInput, id: number) => {
         let newState = { ...state };
-        const currentCategory = state.categories.get(id)!;
+        const currentCategory = newState.categories.get(id)!;
         const updatedStatuses = updatedCategory.statuses;
         const currentStatuses: status[] = [];
         currentCategory.statusIDs.forEach(statusID => {

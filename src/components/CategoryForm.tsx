@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { categoryInput } from '../interfaces';
 import AddIcon from '@mui/icons-material/Add';
 import { Modal } from './Modal';
+import { useStateContext } from '../state-manager/stateProvider';
 
 interface CategoryFormProps {
   type: 'add' | 'edit' | 'filter';
@@ -11,12 +12,14 @@ interface CategoryFormProps {
   saveEdit?: (category: categoryInput) => void;
   cancelEdit?: () => void;
   cancelAdd?: () => void;
+  id?: number;
 }
 
 const colors = ['blue', 'red', 'green', 'orange', 'yellow', 'purple']
 
-export const CategoryForm: React.FC<CategoryFormProps> = ({ type, initialValue, addCategory, saveEdit, cancelEdit, cancelAdd }) => {
+export const CategoryForm: React.FC<CategoryFormProps> = ({ type, initialValue, id, addCategory, saveEdit, cancelEdit, cancelAdd }) => {
   const [formData, setFormData] = useState<categoryInput>(initialValue ? initialValue : { title: '', statuses: [{ title: '', color: '' }] });
+
   const updateCategoryTitle = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData((previousState) => { return { ...previousState, title: e.target.value } });
   }
@@ -87,7 +90,7 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({ type, initialValue, 
           )
         })
       }
-      <Button sx={{ mb: 3, ml: '160px', height: '50px', minWidth: '50px', width: '50px', borderRadius: '100%' }} onClick={addStatus}>
+      <Button sx={{ mb: 3, height: '50px', minWidth: '50px', width: '50px', borderRadius: '100%' }} onClick={addStatus}>
         <AddIcon sx={{ height: '40px', width: '40px' }} />
       </Button>
       {

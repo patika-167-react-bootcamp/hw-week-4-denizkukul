@@ -13,9 +13,12 @@ export const Category: React.FC<categoryProps> = ({ category }) => {
   const [editing, setEditing] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
   const stateManager = useStateContext()!;
-  stateManager.getStatusList(category.id);
 
-  const startEdit = () => { setEditing(true) };
+
+  const startEdit = () => {
+    stateManager.getStatusList(category.id)
+      .then(() => setEditing(true));
+  };
   const cancelEdit = () => { setEditing(false) };
   const saveEdit = (updatedCategory: categoryInput) => {
     stateManager.updateCategory(updatedCategory, category.id)
@@ -31,7 +34,7 @@ export const Category: React.FC<categoryProps> = ({ category }) => {
   return (
     <>
       {
-        editing && <CategoryForm type='edit' initialValue={getEditValues()} saveEdit={saveEdit} cancelEdit={cancelEdit} />
+        editing && <CategoryForm type='edit' id={category.id} initialValue={getEditValues()} saveEdit={saveEdit} cancelEdit={cancelEdit} />
       }
       {
         deleteModal &&

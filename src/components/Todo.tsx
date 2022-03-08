@@ -1,8 +1,8 @@
-import { Box, Button, Typography } from "@mui/material"
-import { useState } from "react";
-import { todo, todoInput } from "../interfaces"
-import { useStateContext } from "../state-manager/stateProvider";
-import { TodoForm } from "./TodoForm";
+import { Box, Button, Typography } from '@mui/material'
+import { useState } from 'react';
+import { todo, todoInput } from '../interfaces'
+import { useStateContext } from '../state-manager/stateProvider';
+import { TodoForm } from './TodoForm';
 
 interface TodoProps {
   todo: todo;
@@ -27,7 +27,7 @@ export const Todo: React.FC<TodoProps> = ({ todo }) => {
       {
         editing ?
           <TodoForm type='edit' saveEdit={saveEdit} cancelEdit={cancelEdit} initialValue={editValues} /> :
-          <Box sx={{ outline: `2px solid ${color}`, display: 'flex', alignItems: 'center', m: '16px', ":hover": { backgroundColor: 'rgb(230,230,230)' } }}>
+          <Box sx={{ outline: `2px solid ${color}`, display: 'flex', alignItems: 'center', m: '16px', ':hover': { backgroundColor: 'rgb(230,230,230)' } }}>
             <Box sx={{ flex: '0px 1 1' }}>
               <Typography sx={{ px: '14px' }}>{todo.title}</Typography>
             </Box>

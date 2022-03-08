@@ -1,6 +1,5 @@
-import { createContext, useState, useContext, useMemo } from "react";
-import { Loading } from "../components";
-import { loginData, registerData } from "../interfaces";
+import { createContext, useState, useContext, useMemo } from 'react';
+import { loginData, registerData } from '../interfaces';
 import { server } from '../services/server';
 
 interface IAuthContext {
@@ -22,7 +21,7 @@ export const AuthContextProvider: React.FC = ({ children }) => {
 
   const authFunctions = useMemo(() => {
     return {
-      login: (data: loginData) => {
+      login: async (data: loginData) => {
         setAuthState({ loggedIn: false, loading: true });
         return server.login(data)
           .then(() => setAuthState({ loggedIn: true, loading: false }))
@@ -31,7 +30,7 @@ export const AuthContextProvider: React.FC = ({ children }) => {
             console.log(error.response);
           })
       },
-      register: (data: registerData) => {
+      register: async (data: registerData) => {
         setAuthState({ loggedIn: false, loading: true });
         return server.register(data)
           .then(() => setAuthState({ loggedIn: true, loading: false }))
@@ -46,7 +45,7 @@ export const AuthContextProvider: React.FC = ({ children }) => {
       },
       onLoad: () => {
         setAuthState((prevState) => {
-          return { ...prevState, Loading: false }
+          return { ...prevState, loading: false }
         })
       }
     }

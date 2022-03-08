@@ -1,9 +1,9 @@
-import { CategoryForm } from "../components/CategoryForm";
-import { Category } from "../components";
-import { Box, Button, Typography } from "@mui/material";
-import { useStateContext } from "../state-manager/stateProvider";
-import { useState } from "react";
-import { categoryInput } from "../interfaces";
+import { CategoryForm } from '../components';
+import { Category } from '../components';
+import { Box, Button, Typography } from '@mui/material';
+import { useStateContext } from '../state-manager/stateProvider';
+import { useState } from 'react';
+import { categoryInput } from '../interfaces';
 
 export const CategoriesPage: React.FC = () => {
   const [adding, setAdding] = useState(false);

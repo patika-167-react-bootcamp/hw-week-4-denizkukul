@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box } from '@mui/material';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -11,7 +11,7 @@ export const TabPanel: React.FC<TabPanelProps> = (props) => {
 
   return (
     <div
-      role="tabpanel"
+      role='tabpanel'
       hidden={value !== index}
       id={`tabpanel-${index}`}
       aria-labelledby={`tab-${index}`}
