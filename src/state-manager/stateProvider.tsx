@@ -91,12 +91,15 @@ export const StateProvider: React.FC = ({ children }) => {
           .then((response) => {
             newState.categories.set(response.data.id, { ...response.data, statusIDs: [], allStatusesFetched: true });
             let newCategory = newState.categories.get(response.data.id);
-            category.statuses.forEach((status) => {
-              server.create('status', status, response.data.id)
-                .then((response) => {
-                  newCategory?.statusIDs.push(response.data.id);
-                  newState.statuses.set(response.data.id, response.data);
-                })
+            category.statuses.forEach((status, i) => {
+              setTimeout(() => {
+                server.create('status', status, response.data.id)
+                  .then((response) => {
+                    newCategory?.statusIDs.push(response.data.id);
+                    newState.statuses.set(response.data.id, response.data);
+                  })
+              }, i * 30) // Creating request with for loop changes status order depending on server response
+              //TODO: Add statuses as soon as clicked on the form to keep order
             })
           })
           .then(() => {
