@@ -28,7 +28,8 @@ export const TodoForm: React.FC<TodoFormProps> = ({ type, initialValue, saveEdit
 
   const clearFormData = () => {
     let newValue = { title: '', categoryId: 0, statusId: 0 };
-    setFormData(newValue)
+    setFormData(newValue);
+    setFilter && setFilter(newValue);
   }
 
   const handleAddTodo = () => {

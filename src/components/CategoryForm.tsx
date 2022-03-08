@@ -12,12 +12,11 @@ interface CategoryFormProps {
   saveEdit?: (category: categoryInput) => void;
   cancelEdit?: () => void;
   cancelAdd?: () => void;
-  id?: number;
 }
 
 const colors = ['blue', 'red', 'green', 'orange', 'yellow', 'purple']
 
-export const CategoryForm: React.FC<CategoryFormProps> = ({ type, initialValue, id, addCategory, saveEdit, cancelEdit, cancelAdd }) => {
+export const CategoryForm: React.FC<CategoryFormProps> = ({ type, initialValue, addCategory, saveEdit, cancelEdit, cancelAdd }) => {
   const [formData, setFormData] = useState<categoryInput>(initialValue ? initialValue : { title: '', statuses: [{ title: '', color: '' }] });
 
   const updateCategoryTitle = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

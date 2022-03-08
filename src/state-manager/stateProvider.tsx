@@ -105,7 +105,7 @@ export const StateProvider: React.FC = ({ children }) => {
       },
       updateCategory: async (updatedCategory: categoryInput, id: number) => {
         let newState = { ...state };
-        const currentCategory = newState.categories.get(id)!;
+        const currentCategory = { ...newState.categories.get(id)! };
         const updatedStatuses = updatedCategory.statuses;
         const currentStatuses: status[] = [];
         currentCategory.statusIDs.forEach(statusID => {
@@ -124,18 +124,21 @@ export const StateProvider: React.FC = ({ children }) => {
         })
 
         // Check if category titles is changed
-        currentCategory.title !== updatedCategory.title && requests.push(server.update('category', id, updatedCategory)
-          .then(() => { currentCategory.title = updatedCategory.title }))
+        currentCategory.title !== updatedCategory.title && requests.push(server.update('category', id, updatedCategory));
+        currentCategory.title = updatedCategory.title;
+
         updatedStatuses.forEach((status, index) => {
           // Current statuses length is reached, create new statuses
           if (!currentStatuses[index]) {
+            console.log('test')
             requests.push(server.create('status', { ...status, categoryId: currentCategory.id }).then(response => {
               newState.statuses.set(response.data.id, response.data);
               currentCategory.statusIDs.push(response.data.id);
             }));
           }
           // If existing status titles or colors are changed update them
-          else if (status.title !== currentStatuses[index].title || status.color !== currentStatuses[index].color) {
+          else {
+            console.log('test2')
             requests.push(server.update('status', currentStatuses[index].id, status).then((response) => {
               newState.statuses.set(currentStatuses[index].id, response.data);
             }));

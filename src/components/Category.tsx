@@ -34,7 +34,7 @@ export const Category: React.FC<categoryProps> = ({ category }) => {
   return (
     <>
       {
-        editing && <CategoryForm type='edit' id={category.id} initialValue={getEditValues()} saveEdit={saveEdit} cancelEdit={cancelEdit} />
+        editing && <CategoryForm type='edit' initialValue={getEditValues()} saveEdit={saveEdit} cancelEdit={cancelEdit} />
       }
       {
         deleteModal &&
